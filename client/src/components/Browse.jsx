@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setSearchedQuery } from '@/redux/jobSlice';
 import useGetAllJobs from '@/hooks/useGetAllJobs';
 import UserHeader from './UserHeader';
+import ExternalJobs from './ExternalJobs';
 
 // const randomJobs = [1, 2,45];
 
@@ -38,6 +39,7 @@ const Browse = () => {
                             }
                         </div>
                     </div>
+                    <ExternalJobs />
                 </div>
             </div>
         </div>

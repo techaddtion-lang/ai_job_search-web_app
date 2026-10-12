@@ -9,7 +9,8 @@ This is Mern Stack Project in which we use the Reactjs Nodejs Express MongoDB, G
 - Step 1: Clone the Project https://github.com/iamtidu/Ai-Powered-Job-Matching-Platform.git
 - Step 2:
     - Goto `Cd Backend` and run `npm i`
-    - create .env file and add the setup it
+    - create `.env` and configure `MONGO_URI`, `SECRET_KEY`, `CLOUD_NAME`, `API_KEY`, and `API_SECRET`
+    - To show external job listings, register for Adzuna API credentials and add `ADZUNA_APP_ID`, `ADZUNA_APP_KEY`, and optionally `ADZUNA_COUNTRY=in` to the backend `.env`. The app proxies searches through the backend; applicants follow the external application link.
     - Goto `Cd Client` and Run `npm i`
     - create .env file and add the setup it for gemini
 - step 3 (two ways):

@@ -9,6 +9,7 @@ import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import UserHeader from './UserHeader'
 import Recommended from './Recommended'
+import ExternalJobs from './ExternalJobs'
 
 const Home = () => {
   useGetAllJobs();
@@ -32,6 +33,7 @@ const Home = () => {
           <HeroSection />
           {/* <CategoryCarousel /> */}
           <LatestJobs />
+          <ExternalJobs />
           <Recommended/>
 
           {/* <Footer /> */}

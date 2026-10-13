@@ -4,6 +4,7 @@ import { Search } from 'lucide-react';
 import { setSearchedQuery } from '@/redux/jobSlice';
 import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
+import { BriefcaseBusiness } from 'lucide-react'
 
 function UserHeader() {
 
@@ -19,6 +20,18 @@ function UserHeader() {
     const { user } = useSelector(store => store.auth);
 
     const recruiter = user?.role == "recruiter"
+    const accountCard = (
+        <div className='flex items-center gap-2 bg-white rounded-md p-2'>
+            <div className='w-12 h-12 bg-blue-100 text-blue-700 rounded-full flex items-center justify-center'>
+                <BriefcaseBusiness aria-hidden='true' />
+            </div>
+            <div className='flex flex-col justify-center min-w-[100px]'>
+                <h1 className='text-[15px] font-bold'>Find MyGig</h1>
+                <p className='text-[12px] font-bold capitalize'>{user?.role} Account</p>
+            </div>
+        </div>
+    );
+
     return (
         <div className='flex justify-between items-center'>
 
@@ -51,25 +64,9 @@ function UserHeader() {
                             <Link to="/signup"><Button className="bg-[#2563eb] hover:bg-[#5563eb]">Signup</Button></Link>
                         </div>
                     ) : (
-                        recruiter ? <div className=' flex bg-[#FFFFFF] rounded-md p-1'>
-                            <div className='w-12 h-12 bg-black rounded-full'>
-                                <img src={user?.profile?.profilePhoto} alt="" className='w-[100%] h-[100%] rounded-full' />
-                            </div>
-                            <div className='ml-1 flex flex-col justify-center min-w-[80px]'>
-                                <h1 className='text-[15px] font-bold'>{user?.fullname}</h1>
-                                <p className='text-[12px] font-bold'> Recruiter</p>
-                            </div>
-                        </div> :
+                        recruiter ? accountCard :
                             <Link to="/profile">
-                                <div className=' flex bg-[#FFFFFF] rounded-md p-1'>
-                                    <div className='w-12 h-12 bg-black rounded-full'>
-                                        <img src={user?.profile?.profilePhoto} alt="" className='w-[100%] h-[100%] rounded-full' />
-                                    </div>
-                                    <div className='ml-1 flex flex-col justify-center'>
-                                        <h1 className='text-[15px] font-bold'>{user?.fullname}</h1>
-                                        <p className='text-[12px] font-bold'>Student</p>
-                                    </div>
-                                </div>
+                                {accountCard}
                             </Link>
 
                     )
